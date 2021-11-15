@@ -1,0 +1,35 @@
+<html>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+{%if user.is_authenticated%}
+<h2> Hello, {{user.username}}</p>
+<a href="{% url 'create' %}">Add Books to Library!</a><br>
+<a href="{% url 'logout' %}?next=/">Logout</a>
+{%else%}
+<a href="{%url 'login' %}"> Login </a>
+{% endif%}
+
+
+
+
+
+{% if a %}
+{% for i in a %}
+{% if user.is_authenticated%}
+<h1> <a href="{{ i.get_absolute_url }}"> {{i.title}}</a></h1>
+{% else %}
+<div class="row">
+<div class="column" style="background-color:#aaa;">
+<h1>Title: <br>{{i.title}}</h1>
+
+{% endif%}
+<h1>Description:<br> {{i.description}}</h1>
+<h1>Author: {{i.author}}</h1>
+<h1> ${{i.price}}</h1>
+</div>
+{%endfor%}
+{%else%}
+<h1>No Books Available in the library. Sorry!{% endif %}</h1>
+
+</body>
+</html>

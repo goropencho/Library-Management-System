@@ -1,0 +1,9 @@
+{%block content%}
+<form method='POST'> {% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Save" />
+</form>
+<form method="POST">
+{% comment %} <a href="{% url 'delete' id=i.id %}">DELETE</a> {% endcomment %}
+</form>
+{% endblock %}

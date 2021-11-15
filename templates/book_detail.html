@@ -1,0 +1,8 @@
+
+
+<h1><strong>Title:</strong>{{ book.title }}</p>
+<h1><strong>Description:</strong> {{ book.description }}</p>
+<h1><strong>Author:</strong> {{ book.author }}</p>
+<h1><strong>Price:</strong> {{ book.price }}</p>
+<a href="{% url 'delete' id=book.id %}">DELETE</a>
+<a href="{% url 'update' id=book.id %}">Update</a>

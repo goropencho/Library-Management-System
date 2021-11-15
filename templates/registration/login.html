@@ -1,0 +1,19 @@
+<html>
+<body>
+<h1> Login Here!</h1>
+{%if form.errors %}
+<p>Incorrect Email or Password.</p>
+{% endif %}
+
+{% if next %}
+<p> Can't access the next pages</p>
+{% endif %}
+<form method="POST" action="{% url 'login' %}">
+{% csrf_token %}
+
+<p>Email: {{ form.username}} </p>
+<p>Password: {{ form.password}} </p>
+<button type="submit">Log In </button>
+</form>
+<a href="{% url "register" %}"> New Account? Register Here! </a>
+</html>
